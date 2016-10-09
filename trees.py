@@ -7,8 +7,10 @@ e  = cmath.e
 # set up for turtle
 import turtle
 
+
 turtle.radians()
-turtle.speed(speed=0)
+turtle.hideturtle()
+turtle.tracer(n=0)
 
 #scale controls the length of branches, should be positive and < 1
 scale = 1 / 2.0
@@ -19,7 +21,7 @@ class Tree():
         self.root = root                #a complex number
         self.level = level              #an integer, self-explanatory
         
-        self.rho = 200 * scale ** level
+        self.rho = 400 * scale ** level
         self.phi = phi                  #an argument, perpendicular to branch
         
         self.branches = branches        #a list of sub-Trees
@@ -43,9 +45,17 @@ class Tree():
             turtle.pendown()
             turtle.goto(next_root.real,next_root.imag)        
 
+# example
 empty_tree=Tree(0,1,0,[])
-# code below creates example.pdf
 test_tree = empty_tree.grow_tree(3,7)
 test_tree.draw_tree("turtle")
-turtle.hideturtle()
+
+# draw trunk
+turtle.penup()
+turtle.goto(0,0)
+turtle.pendown()
+turtle.goto(0,-400)
+
+# finish up
+turtle.update()
 turtle.done()
