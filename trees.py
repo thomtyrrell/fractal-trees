@@ -55,7 +55,7 @@ class Tree():
 
 # example
 empty_tree=Tree(0,1,0,[])
-test_tree = empty_tree.grow_tree(3,7)
+test_tree = empty_tree.grow_tree(4,6)
 test_tree.draw_tree("turtle")
 
 # finish up
